@@ -51,7 +51,7 @@ add following `overrides` to `package.json`
 
 ```json
   "overrides": {
-    "d3-selection": "1.3.0"
+    "d3-selection": "1.4.2"
   }
 ```
 
