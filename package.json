@@ -15,8 +15,12 @@
     "packages/knob"
   ],
   "workspaces": [
-    "projects/*"
+    "projects/knob"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "13.1.4",
     "@angular-eslint/builder": "13.0.1",
