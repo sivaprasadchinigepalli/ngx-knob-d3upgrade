@@ -446,7 +446,7 @@ export class KnobComponent implements OnInit, OnChanges {
           .enter()
           .append('circle')
           // @ts-ignore
-          .attrs({
+          .attr({
             r: function(d: { r: any }) {
               return d.r;
             },
@@ -479,7 +479,7 @@ export class KnobComponent implements OnInit, OnChanges {
           .enter()
           .append('line')
           // @ts-ignore
-          .attrs({
+          .attr({
             x1: function(d: { x1: number }) {
               return d.x1;
             },
