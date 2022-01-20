@@ -38,14 +38,19 @@ Note: from v1.0.2,  we are publishing to GitHub Packages https://github.com/xmlk
 
 See [Configuring npm for use with GitHub Packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages)
 
+add to project's `.npmrc`
+```
+@xmlking/ngx-knob:registry=https://npm.pkg.github.com
+ ```
+
 ```bash
 npm install @xmlking/ngx-knob --save
 ```
 
-add following `resolutions` to `package.json`
+add following `overrides` to `package.json`
 
 ```json
-  "resolutions": {
+  "overrides": {
     "d3-selection": "1.3.0"
   }
 ```
@@ -182,6 +187,6 @@ cp README.md dist/knob
 cd dist/knob
 # publish to github registry
 npm publish --access public
-# publish to npm registry
+# publish to npm registry (depreciated)
 npm publish --access public --@xmlking:registry=https://registry.npmjs.org/
 ```
