@@ -38,10 +38,22 @@ Note: from v1.0.2,  we are publishing to GitHub Packages https://github.com/xmlk
 
 See [Configuring npm for use with GitHub Packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages)
 
-add to project's `.npmrc`
+
+1. To install from **GitHub Packages**, you’ll need to create a personal access token in Github. Give it read and write access for packages. If your account has access to the organisation, then it will have access to its packages.
+
+2. After creating a token, run this:
+
+    npm login --registry=https://npm.pkg.github.com
+
+Your username will be your github user name, and your password will be the token. After that, you should be able to install your package!
+
+3. Add to project's `.npmrc`
+
 ```
 @xmlking/ngx-knob:registry=https://npm.pkg.github.com
  ```
+
+Now you can install this package via:
 
 ```bash
 npm install @xmlking/ngx-knob --save

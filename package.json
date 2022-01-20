@@ -9,6 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "engines": {
+    "node": ">=v17.4.0",
+    "npm": ">=8.3.1"
+  },
   "private": true,
   "packageScope": "@xmlking",
   "packages": [
