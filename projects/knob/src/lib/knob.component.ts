@@ -1,6 +1,5 @@
 import { ElementRef, OnInit, Input, Output, EventEmitter, OnChanges, Component } from '@angular/core';
 import * as d3 from 'd3';
-import 'd3-selection-multi';
 // https://medium.com/inside-formstack/friends-dont-let-friends-import-lodash-incorrectly-ac40ca9e3bd5
 import merge from 'lodash-es/merge';
 
@@ -446,18 +445,17 @@ export class KnobComponent implements OnInit, OnChanges {
           .enter()
           .append('circle')
           // @ts-ignore
-          .attr({
-            r: function(d: { r: any }) {
+          .attr("r", function(d: { r: any }) {
               return d.r;
-            },
-            cx: function(d: { cx: number }) {
+            })
+          .attr("cx", function(d: { cx: number }) {
               return d.cx;
-            },
-            cy: function(d: { cy: number }) {
+            })
+          .attr("cy", function(d: { cy: number }) {
               return d.cy;
-            },
-            fill: this.options.scale.color,
-          });
+            })
+          .attr("fill", this.options.scale.color)
+          
       } else if (this.options.scale.type === 'lines') {
         const height = this.options.scale.height;
         radius = this.options.size / 2;
@@ -479,22 +477,20 @@ export class KnobComponent implements OnInit, OnChanges {
           .enter()
           .append('line')
           // @ts-ignore
-          .attr({
-            x1: function(d: { x1: number }) {
+          .attr("x1", function(d: { x1: number }) {
               return d.x1;
-            },
-            y1: function(d: { y1: number }) {
+            })
+          .attr("y1", function(d: { y1: number }) {
               return d.y1;
-            },
-            x2: function(d: { x2: number }) {
+            })
+          .attr("x2",function(d: { x2: number }) {
               return d.x2;
-            },
-            y2: function(d: { y2: number }) {
+            })
+          .attr("y2",function(d: { y2: number }) {
               return d.y2;
-            },
-            'stroke-width': this.options.scale.width,
-            stroke: this.options.scale.color,
-          });
+            })
+           .attr("stroke-width", this.options.scale.width)
+           .attr("stroke", this.options.scale.color)
       }
     }
     if (this.options.skin.type === 'tron') {
@@ -585,19 +581,19 @@ export class KnobComponent implements OnInit, OnChanges {
       that.valueElem.attr('d', that.valueArc);
     }
 
-    function dragInteraction() {
+    function dragInteraction(event: any) {
       that.inDrag = true;
       // @ts-ignore
-      const x = d3.event.x - that.options.size / 2;
+      const x = event.x - that.options.size / 2;
       // @ts-ignore
-      const y = d3.event.y - that.options.size / 2;
+      const y = event.y - that.options.size / 2;
       interaction(x, y, false);
     }
 
-    function clickInteraction() {
+    function clickInteraction(event:any) {
       that.inDrag = false;
       // @ts-ignore
-      const coords = d3.mouse(this.parentNode);
+      const coords = d3.pointer(event);
       const x = coords[0] - that.options.size / 2;
       const y = coords[1] - that.options.size / 2;
       interaction(x, y, true);

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { KnobModule } from '@xmlking/ngx-knob';
+import { KnobModule } from '../../projects/knob/src/public_api';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
